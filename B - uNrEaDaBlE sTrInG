@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() 
+{
+	
+    cin.tie(NULL);
+    ios::sync_with_stdio(false);
+    string s;
+    cin>>s;
+    int flag=0,i;
+    for(i=0;i<s.length();i++)
+    {
+    	if(!flag)
+    	{
+    		if(!islower(s[i]))
+    		break;
+		}
+		if(flag)
+		{
+			if(!isupper(s[i]))
+	        break;
+		}
+    	flag=1-flag;
+     }
+	if(i==s.length())
+	cout<<"Yes";
+	else
+	cout<<"No";
+    return 0;
+}
