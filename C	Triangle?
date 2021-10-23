@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long 
+bool checkTriangle(ll x1, ll y1, ll x2,
+                   ll y2, ll x3, ll y3)
+{
+ 
+    ll a = x1 * (y2 - y3)
+            + x2 * (y3 - y1)
+            + x3 * (y1 - y2);
+    if (a == 0)
+        return false;
+    else
+        return true;
+}
+int main()
+{
+	ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll n;
+    cin>>n;
+    vector<pair<ll,ll>> arr;
+    for(ll i=0;i<n;i++)
+    {
+      ll a,b;
+      cin>>a>>b;
+      arr.push_back({a,b});
+	}
+	ll count=0;
+	for(ll i=0;i<n;i++)
+	for(ll j=i+1;j<n;j++)
+	for(ll k=j+1;k<n;k++)
+	{
+		pair<ll,ll> one=arr[i];
+		pair<ll,ll> two=arr[j];
+		pair<ll,ll> three=arr[k];
+		
+		if(checkTriangle(one.first,one.second,two.first,two.second,three.first,three.second))
+		count++;
+		
+	}
+	cout<<count;
+    return 0;
+}
